@@ -1,8 +1,4 @@
-![Heliactyl](https://cdn.discordapp.com/attachments/987734229469253674/1000790022263423116/Copy_of_citric_3.png)
-
-<hr>
-
-# Heliactyl v13
+# Pandactyl V1
 
 All features:
 - Resource Management (Use it to create servers, etc)
@@ -24,6 +20,10 @@ All features:
 We cannot force you to keep the "Powered by Heliactyl" in the footer, but please consider keeping it. It helps getting more visibility to the project and so getting better. We won't do technical support for installations without the notice in the footer. We may DMCA the website in certain conditions.
 Please do keep the footer though.
 
+# Note 
+
+This is a fork of [Heliactyl](https://gitlab.com/heliactyl/panel)
+
 <hr>
 
 # Install Guide
@@ -36,8 +36,8 @@ Warning: You need Pterodactyl already set up on a domain for Heliactyl to work
 5. Login to your DNS manager, point the domain you want your dashboard to be hosted on to your VPS IP address. (Example: dashboard.domain.com 192.168.0.1)
 6. Run `apt install nginx && apt install certbot` on the vps
 7. Run `ufw allow 80` and `ufw allow 443` on the vps
-8. Run `certbot certonly -d <Your Heliactyl Domain>` then do 1 and put your email
-9. Run `nano /etc/nginx/sites-enabled/heliactyl.conf`
+8. Run `certbot certonly -d <Your Pandactyl Domain>` then do 1 and put your email
+9. Run `nano /etc/nginx/sites-enabled/pandactyl.conf`
 10. Paste the configuration at the bottom of this and replace with the IP of the pterodactyl server including the port and with the domain you want your dashboard to be hosted on.
 11. Run `systemctl restart nginx` and try open your domain.
 
@@ -83,17 +83,20 @@ Enabling other eggs (Minecraft Bedrock):
 
 # Updating 
 
-From Heliactyl v11/v12 or Dashactyl v0.4 to Heliactyl v13:
+From Dashactyl v0.4 to Pandactyl V1:
+
 1. Store certain things such as your api keys, discord auth settings, etc in a .txt file
 2. Download database.sqlite 
 3. Delete all files off the server (or delete and remake the folder if done in ssh)
-4. Upload the latest Heliactyl v12 release and unzip it
+4. Upload the latest Pandactyl release and unzip it
 5. Upload database.sqlite and reconfigure settings.json
 
-Move to a newer Heliactyl v13 release:
+
+Move to a newer Pandactyl V1 release:
+
 1. Delete everything except settings.json, database.sqlite
 2. Put the files that you didn't delete into a zip file
-3. Upload the latest Heliactyl v13 release and unzip it
+3. Upload the latest Pandactyl v13 release and unzip it
 4. Remove settings.json and database.sqlite
 5. Unzip the zip with your old settings.json and database.sqlite
 
@@ -102,21 +105,20 @@ Installing [pm2](https://github.com/Unitech/pm2):
 - Run `npm install pm2 -g` on the vps
 
 Starting the Dashboard in Background:
-- Change directory to your Heliactyl folder Using `cd` command, Example: `cd /var/www/heliactyl` 
-- To run Heliactyl, use `pm2 start index.js --name "heliactyl"`
-- To view logs, run `pm2 logs Heliactyl`
+- Change directory to your Pandactyl folder Using `cd` command, Example: `cd /var/www/pandactyl` 
+- To run Pandactyl, use `pm2 start index.js --name "pandactyl"`
+- To view logs, run `pm2 logs Pandactyl`
 
 Making the dashboard runs on startup:
 - Make sure your dashboard is running in the background with the help of [pm2](https://github.com/Unitech/pm2)
-- You can check if Heliactyl is running in background with `pm2 list`
-- Once you confirmed that Heliactyl is running in background, you can create a startup script by running `pm2 startup` and `pm2 save`
+- You can check if Pandactyl is running in background with `pm2 list`
+- Once you confirmed that Pandactyl is running in background, you can create a startup script by running `pm2 startup` and `pm2 save`
 - Note: Supported init systems are `systemd`, `upstart`, `launchd`, `rc.d`
 - To stop your Heliactyl from running in the background, use `pm2 unstartup`
 
-To stop a currently running Heliactyl instance, use `pm2 stop heliactyl`
+To stop a currently running Pandactyl instance, use `pm2 stop pandactyl`
 
 # Legacy Deprecation Notice
 
-Heliactyl v6, v7, v8, v9, v10, v11 is now deprecated as listed in our Discord and should not be used.
-Please update to Heliactyl v12/v13.
+Nothing here yet.
 
